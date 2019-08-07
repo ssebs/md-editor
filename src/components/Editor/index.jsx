@@ -11,13 +11,13 @@ const Editor = props => {
 
     // clg the selection
     useEffect(() => {
-        console.log(`Cursor: ${JSON.stringify(cursorPos)}`);
-        if (cursorPos.start === cursorPos.end) {
-            console.log(content.substr(cursorPos.start, 1));
-        } else {
-            const diffNum = cursorPos.end - cursorPos.start;
-            console.log(content.substr(cursorPos.start, diffNum));
-        }
+        // console.log(`Cursor: ${JSON.stringify(cursorPos)}`);
+        // if (cursorPos.start === cursorPos.end) {
+        //     console.log(content.substr(cursorPos.start, 1));
+        // } else {
+        //     const diffNum = cursorPos.end - cursorPos.start;
+        //     console.log(content.substr(cursorPos.start, diffNum));
+        // }
 
         // eslint-disable-next-line
     }, [cursorPos]);
@@ -54,7 +54,7 @@ const Editor = props => {
                 id="editor"
                 className="editorarea"
                 onChange={handleChange}
-                defaultValue={content}
+                value={content}
                 onKeyDown={handleSelection}
                 onSelect={handleSelection}
             />

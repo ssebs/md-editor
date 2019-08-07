@@ -14,16 +14,17 @@ const App = () => {
         } else {
             setContent(sampleContent);
         }
-    }, []);
+    }, [content]);
 
     const handleSave = content => {
         if (!content) {
             console.log("resetting");
             localStorage.setItem("mdContent", sampleContent);
-            window.location.reload();
+            setContent(sampleContent);
         } else {
             console.log("saving");
             console.log(content);
+            setContent(content);
             localStorage.setItem("mdContent", content);
         }
     };
