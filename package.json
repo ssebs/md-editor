@@ -1,7 +1,7 @@
 {
   "name": "md-editor",
   "version": "0.1.0",
-  "homepage": "https://ssebs.github.io/md-editor",
+  "homepage": "https://ssebs.github.io/md-editor/",
   "private": true,
   "dependencies": {
     "marked": "^0.7.0",

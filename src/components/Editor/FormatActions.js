@@ -49,7 +49,7 @@ export const makeQuote = (content, cursorPos) => {
 
     const tmpStr = content.substr(cursorPos.start, diffNum);
     if (tmpStr.indexOf(">") !== -1) {
-        newContent += `${tmpStr.replace(/\> /g, "")}`;
+        newContent += `${tmpStr.replace(/> /g, "")}`;
     } else {
         newContent += `> ${tmpStr}`;
     }
