@@ -1,6 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 
-const Toolbar = () => {
+const Toolbar = props => {
+    const [content, setContent] = useState(props.content)
+    const [cursorPos, setCursorPos] = useState(props.cursorPos)
+
     return (
         <div className="toolbar">
             <div>Bold</div>

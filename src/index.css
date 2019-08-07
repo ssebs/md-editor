@@ -24,6 +24,7 @@
     padding: 5px;
     margin: 0px;
     border: 1px solid gray;
+    background-color: #efefefef;
     transition: all ease 0.2s;
 }
 .toolbar div:hover {
