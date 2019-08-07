@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Toolbar from "./Toolbar";
 
 const Editor = () => {
     return (
-        <div>
-            <Toolbar />
-            I'm an editor
-        </div>
+        <>
+            {(
+                <div>
+                    <Toolbar />
+                    I'm an editor
+                </div>
+            )}
+        </>
     );
 };
 

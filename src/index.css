@@ -1,0 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+.toolbar {
+    border: 1px solid black;
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 2px;
+}
+.toolbar div {
+    padding: 5px;
+    margin: 0px;
+    border: 1px solid gray;
+    transition: all ease 0.2s;
+}
+.toolbar div:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
