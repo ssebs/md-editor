@@ -10,21 +10,30 @@ const App = () => {
     useEffect(() => {
         const cookie = localStorage.getItem("mdContent");
         if (cookie) {
-            console.log(cookie);
             setContent(cookie);
         } else {
-            console.log("Sample...");
-            console.log(sampleContent);
             setContent(sampleContent);
         }
     }, []);
 
+    const handleSave = content => {
+        if (!content) {
+            console.log("resetting");
+            localStorage.setItem("mdContent", sampleContent);
+            window.location.reload();
+        } else {
+            console.log("saving");
+            console.log(content);
+            localStorage.setItem("mdContent", content);
+        }
+    };
+
     return (
         <>
             {content && (
-                <div>
+                <div className="container">
                     <h1>Markdown Editor</h1>
-                    <Editor />
+                    <Editor content={content} saveFunc={handleSave} />
 
                     <hr />
                     <h3>Output:</h3>
