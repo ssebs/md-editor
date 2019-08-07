@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { makeBold, makeItalic } from "../FormatActions";
+
 const Toolbar = props => {
     const [content, setContent] = useState(null);
     const [cursorPos, setCursorPos] = useState(props.cursorPos);
@@ -13,29 +15,19 @@ const Toolbar = props => {
         <div className="toolbar">
             <div
                 onClick={() => {
-                    let diffNum = cursorPos.end - cursorPos.start;
-                    if (diffNum === 0) {
-                        return;
-                    }
-                    let newContent = "";
-
-                    console.log("Making the selection bold...");
-                    console.log(content);
-                    console.log(cursorPos);
-
-                    newContent += content.slice(0, cursorPos.start);
-                    const tmpStr = content.substr(cursorPos.start, diffNum);
-                    newContent += `**${tmpStr}**`;
-                    newContent += content.slice(cursorPos.end);
-                    console.log(newContent);
-
-                    props.updateFunc(newContent)
+                    props.updateFunc(makeBold(content, cursorPos));
                 }}
             >
                 Bold
             </div>
 
-            <div>Italic</div>
+            <div
+                onClick={() => {
+                    props.updateFunc(makeItalic(content, cursorPos));
+                }}
+            >
+                Italic
+            </div>
             <div>Quote</div>
         </div>
     );

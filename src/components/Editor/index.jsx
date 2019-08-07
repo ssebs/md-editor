@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 
+import { makeBold, makeItalic } from "./FormatActions";
 import Toolbar from "./Toolbar";
 
 const Editor = props => {
@@ -18,7 +19,6 @@ const Editor = props => {
         //     const diffNum = cursorPos.end - cursorPos.start;
         //     console.log(content.substr(cursorPos.start, diffNum));
         // }
-
         // eslint-disable-next-line
     }, [cursorPos]);
 
@@ -36,6 +36,18 @@ const Editor = props => {
             start: e.target.selectionStart,
             end: e.target.selectionEnd
         });
+        if (e.ctrlKey) {
+            switch (e.key) {
+                case "b":
+                    setContent(makeBold(content, cursorPos));
+                    break;
+                case "i":
+                    setContent(makeItalic(content, cursorPos));
+                    break;
+                default:
+                    break;
+            }
+        }
     };
     const handleToolbarUpdate = content => {
         console.log("Updating content from toolbar");

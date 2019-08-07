@@ -21,6 +21,7 @@ const App = () => {
             console.log("resetting");
             localStorage.setItem("mdContent", sampleContent);
             setContent(sampleContent);
+            window.location.reload();
         } else {
             console.log("saving");
             console.log(content);
