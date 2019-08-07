@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { makeBold, makeItalic } from "../FormatActions";
+import { makeBold, makeItalic, makeQuote } from "../FormatActions";
 
 const Toolbar = props => {
     const [content, setContent] = useState(null);
@@ -31,7 +31,14 @@ const Toolbar = props => {
             >
                 Italic
             </div>
-            <div>Quote</div>
+            <div
+                onClick={() => {
+                    props.updateFunc(makeQuote(content, cursorPos));
+                    editorRef.current.focus();
+                }}
+            >
+                Quote
+            </div>
         </div>
     );
 };
