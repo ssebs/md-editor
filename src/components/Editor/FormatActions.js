@@ -10,9 +10,13 @@ export const makeBold = (content, cursorPos) => {
     newContent += content.slice(0, cursorPos.start);
 
     const tmpStr = content.substr(cursorPos.start, diffNum);
-    newContent += `**${tmpStr}**`;
+    if (tmpStr.indexOf("**") !== -1) {
+        newContent += `${tmpStr.replace(/\**/g, "")}`;
+    } else {
+        newContent += `**${tmpStr}**`;
+    }
     newContent += content.slice(cursorPos.end);
-   
+
     return newContent;
 };
 
@@ -25,8 +29,12 @@ export const makeItalic = (content, cursorPos) => {
     newContent += content.slice(0, cursorPos.start);
 
     const tmpStr = content.substr(cursorPos.start, diffNum);
-    newContent += `*${tmpStr}*`;
+    if (tmpStr.indexOf("*") !== -1) {
+        newContent += `${tmpStr.replace(/\*/g, "")}`;
+    } else {
+        newContent += `*${tmpStr}*`;
+    }
     newContent += content.slice(cursorPos.end);
-   
+
     return newContent;
 };

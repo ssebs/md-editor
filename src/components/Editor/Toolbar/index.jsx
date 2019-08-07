@@ -5,6 +5,7 @@ import { makeBold, makeItalic } from "../FormatActions";
 const Toolbar = props => {
     const [content, setContent] = useState(null);
     const [cursorPos, setCursorPos] = useState(props.cursorPos);
+    const editorRef = props.editorRef;
 
     useEffect(() => {
         setContent(props.content);
@@ -16,6 +17,7 @@ const Toolbar = props => {
             <div
                 onClick={() => {
                     props.updateFunc(makeBold(content, cursorPos));
+                    editorRef.current.focus();
                 }}
             >
                 Bold
@@ -24,6 +26,7 @@ const Toolbar = props => {
             <div
                 onClick={() => {
                     props.updateFunc(makeItalic(content, cursorPos));
+                    editorRef.current.focus();
                 }}
             >
                 Italic

@@ -9,6 +9,7 @@ const Editor = props => {
         start: 0,
         end: 0
     });
+    const editorRef = React.createRef()
 
     // clg the selection
     useEffect(() => {
@@ -60,8 +61,10 @@ const Editor = props => {
                 cursorPos={cursorPos}
                 content={content}
                 updateFunc={handleToolbarUpdate}
+                editorRef={editorRef}
             />
             <textarea
+                ref={editorRef}
                 name="editor"
                 id="editor"
                 className="editorarea"
